@@ -1,0 +1,4 @@
+SKU,Name,Type,Parent,Regular price,Sale price,Stock,Published
+DEMO-DUP,Example one,simple,,29.90,39.90,4,1
+DEMO-DUP,Example two,simple,,EUR 19.90,,-1,2
+DEMO-CHILD,Example variation,variation,EXTERNAL-PARENT,19.90,,parent,1

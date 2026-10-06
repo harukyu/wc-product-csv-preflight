@@ -1,0 +1,4 @@
+SKU,Name,Type,Parent,Regular price,Sale price,Stock,Published
+DEMO-TEE,Demonstration shirt,variable,,,,,1
+DEMO-TEE-S,Demonstration shirt small,variation,DEMO-TEE,24.90,19.90,5,1
+DEMO-TEE-M,Demonstration shirt medium,variation,DEMO-TEE,24.90,,parent,1
