@@ -2,13 +2,13 @@
 
 [![Syntax and packaging](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml/badge.svg)](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml)
 
-Check common product CSV mistakes **before import**. WordPress admin plugin, WP-CLI command and standalone PHP CLI by **[Nakaryu GmbH](https://nakaryu.de)**. The tool never creates, imports or changes products. **Developer preview 0.1.0: runtime integration and analysis behavior have not yet been validated.**
+Check common product CSV mistakes **before import**. WordPress admin plugin, WP-CLI command and standalone PHP CLI by **[Nakaryu GmbH](https://nakaryu.de)**. The tool never creates, imports or changes products. **Developer preview 0.1.1: Plugin Check and isolated activation/basic CLI checks passed; broader integration remains unverified.**
 
 [Deutsche Anleitung](docs/DE.md) · [Downloads](https://github.com/harukyu/wc-product-csv-preflight/releases) · [Validation scope](docs/VALIDATION.md)
 
 ## Install and use
 
-Download `wc-product-csv-preflight-0.1.0.zip` from Releases. On an isolated development installation, upload it through **Plugins → Add New → Upload Plugin**, activate and open **Tools → Product CSV Preflight**. Choose a CSV and delimiter, then click **Check CSV**.
+Build `nakaryu-product-csv-preflight-0.1.1.zip` using `python3 tools/package.py`. Published release downloads are linked above. On an isolated development installation, upload it through **Plugins → Add New → Upload Plugin**, activate and open **Tools → Product CSV Preflight**. Choose a CSV and delimiter, then click **Check CSV**.
 
 The screen requires `manage_woocommerce`, normally granted to administrators and shop managers by WooCommerce, plus a valid nonce. WooCommerce does not need to execute for the core analyzer; without that capability the menu is unavailable. Designed for WordPress 6.0+ and PHP 7.4+; minimums are implementation targets, not verified compatibility claims. The backend sends the file to **your WordPress server**, never to Nakaryu.
 
@@ -67,7 +67,7 @@ A clean report is not an import guarantee. The tool does not resolve existing st
 
 ## Development and validation
 
-`php -l` checks each PHP file. `python3 tools/package.py` builds deterministic plugin/source ZIPs and SHA-256 sidecars. CI targets PHP 7.4, 8.1, 8.3 and 8.5 for syntax only. No functional test suite, actual plugin activation or WooCommerce integration validation has been performed for this release. See [validation scope](docs/VALIDATION.md).
+`php -l` checks each PHP file. `python3 tools/package.py` builds deterministic plugin/source ZIPs and SHA-256 sidecars. CI targets PHP 7.4, 8.1, 8.3 and 8.5 for syntax only. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full admin-upload and WooCommerce integration QA remains incomplete. See [validation scope](docs/VALIDATION.md).
 
 ## References
 
@@ -77,3 +77,5 @@ A clean report is not an import guarantee. The tool does not resolve existing st
 ## License
 
 Copyright 2026 Nakaryu GmbH. GPL-2.0-or-later; see [LICENSE](LICENSE). This is an independent project, not an official WooCommerce product.
+
+The installable plugin ZIP excludes the standalone `bin/` CLI. Use the source repository/package for that CLI; the WP-CLI command remains included in the plugin.

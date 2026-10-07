@@ -2,7 +2,7 @@
 namespace Nakaryu\CsvPreflight;
 
 final class Analyzer {
-    const VERSION = '0.1.0';
+    const VERSION = '0.1.1';
     const MAX_BYTES = 5242880;
     const MAX_ROWS = 10000;
     const MAX_COLUMNS = 256;

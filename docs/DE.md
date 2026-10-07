@@ -1,6 +1,6 @@
 # Product CSV Preflight – deutsche Kurzanleitung
 
-**Vorabversion 0.1.0:** Syntax und Paketbau sind der veröffentlichte Prüfumfang. Die tatsächliche WordPress-/WooCommerce-Integration und das Analyseverhalten wurden noch nicht funktional geprüft.
+**Vorabversion 0.1.1:** Offizieller Plugin Check sowie lokale Aktivierung und einfache WP-CLI-Prüfungen abgeschlossen. Die umfassende Integration bleibt ungeprüft.
 
 ## Zweck
 
@@ -8,7 +8,7 @@ Produktdateien vor dem WooCommerce-Import auf typische Fehler untersuchen: doppe
 
 ## Installation und Bedienung
 
-1. Unter [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases) `wc-product-csv-preflight-0.1.0.zip` laden.
+1. Paket mit `python3 tools/package.py` bauen; die installierbare Datei heißt `nakaryu-product-csv-preflight-0.1.1.zip`.
 2. Auf einer Entwicklungsinstallation als Plugin hochladen und aktivieren.
 3. **Werkzeuge → Product CSV Preflight** öffnen, CSV und Trennzeichen wählen und prüfen.
 

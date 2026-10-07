@@ -1,10 +1,10 @@
 {
-  "slug": "wc-product-csv-preflight",
+  "slug": "nakaryu-product-csv-preflight",
   "title": "Product CSV Preflight",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "module": "includes/Analyzer.php",
   "plugin_files": [
-    "wc-product-csv-preflight.php",
+    "nakaryu-product-csv-preflight.php",
     "includes/Analyzer.php",
     "README.md",
     "readme.txt",
@@ -14,12 +14,11 @@
     "SECURITY.md",
     "docs/DE.md",
     "docs/VALIDATION.md",
-    "bin/preflight.php",
     "examples/products.csv",
     "examples/needs-review.csv"
   ],
   "source_files": [
-    "wc-product-csv-preflight.php",
+    "nakaryu-product-csv-preflight.php",
     "includes/Analyzer.php",
     "README.md",
     "readme.txt",

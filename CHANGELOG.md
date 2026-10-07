@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — 2026-10-07
+
+- Align plugin folder, main file and text domain with Nakaryu branding for WordPress.org.
+- Set the WordPress.org contributor to `nakaryu` and document local Plugin Check preparation.
+- Normalize the request method before comparison.
+- Validate the submitted delimiter and ship the standalone CLI only in the source package.
+
 ## 0.1.0 — 2026-10-07 (developer preview)
 
 - Independent initial implementation by Nakaryu GmbH.

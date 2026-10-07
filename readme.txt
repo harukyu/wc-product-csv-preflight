@@ -1,9 +1,10 @@
 === Nakaryu Product CSV Preflight ===
-Contributors: harukyu
+Contributors: nakaryu
 Tags: woocommerce, csv, products, import, wp-cli
 Requires at least: 6.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,5 +24,8 @@ No. It reports findings only. Existing store products, images and attributes are
 To your WordPress server's temporary PHP upload. The plugin does not persist it or send it to Nakaryu.
 
 == Changelog ==
+= 0.1.1 =
+* Directory package naming and official Plugin Check preparation.
+
 = 0.1.0 =
 Independent initial developer preview. Syntax and packaging checks only.
