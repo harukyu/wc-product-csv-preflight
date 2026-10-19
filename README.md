@@ -8,7 +8,7 @@ Check common product CSV mistakes **before import**. WordPress admin plugin, WP-
 
 ## Install and use
 
-Build `nakaryu-product-csv-preflight-0.1.1.zip` using `python3 tools/package.py`. Published release downloads are linked above. On an isolated development installation, upload it through **Plugins → Add New → Upload Plugin**, activate and open **Tools → Product CSV Preflight**. Choose a CSV and delimiter, then click **Check CSV**.
+Download `nakaryu-product-csv-preflight-0.1.1.zip` from [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases/tag/v0.1.1), or build it using `python3 tools/package.py`. On an isolated development installation, upload it through **Plugins → Add New → Upload Plugin**, activate and open **Tools → Product CSV Preflight**. Choose a CSV and delimiter, then click **Check CSV**.
 
 The screen requires `manage_woocommerce`, normally granted to administrators and shop managers by WooCommerce, plus a valid nonce. WooCommerce does not need to execute for the core analyzer; without that capability the menu is unavailable. Designed for WordPress 6.0+ and PHP 7.4+; minimums are implementation targets, not verified compatibility claims. The backend sends the file to **your WordPress server**, never to Nakaryu.
 

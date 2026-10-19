@@ -8,7 +8,7 @@ Produktdateien vor dem WooCommerce-Import auf typische Fehler untersuchen: doppe
 
 ## Installation und Bedienung
 
-1. Paket mit `python3 tools/package.py` bauen; die installierbare Datei heißt `nakaryu-product-csv-preflight-0.1.1.zip`.
+1. `nakaryu-product-csv-preflight-0.1.1.zip` unter [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases/tag/v0.1.1) laden oder mit `python3 tools/package.py` selbst bauen.
 2. Auf einer Entwicklungsinstallation als Plugin hochladen und aktivieren.
 3. **Werkzeuge → Product CSV Preflight** öffnen, CSV und Trennzeichen wählen und prüfen.
 

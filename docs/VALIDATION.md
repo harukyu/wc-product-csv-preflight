@@ -20,5 +20,5 @@ Before a stable release, separately validate permissions/nonces, rendered escapi
 ## Functional regression checks — 2026-10-19
 
 - Added a dependency-free analyzer suite with synthetic CSV input. It checks quoted multiline fields, delimiters, partial updates, duplicate identifiers, parent references, exact decimal prices, invalid input, privacy of findings, size limits and bounded reports.
-- Local PHP 8.4.26 run: 22 assertions passed; all project PHP files passed syntax lint. CI now runs the same suite on PHP 7.4, 8.1, 8.3 and 8.5.
+- Local PHP 8.4.26 run: 22 assertions passed; all project PHP files passed syntax lint. [CI run 39260104920](https://github.com/harukyu/wc-product-csv-preflight/actions/runs/39260104920) passed the same suite, syntax and packaging on PHP 7.4, 8.1, 8.3 and 8.5.
 - This checks the standalone analyzer, not the browser upload flow or parity with a live WooCommerce importer. The earlier Plugin Check and isolated WordPress checks above were run before this change; this change does not claim they were rerun.
