@@ -57,7 +57,7 @@ The first 200 findings are returned; totals still count later findings and `find
 
 ## Synthetic examples
 
-`examples/products.csv` contains a variable product and two variations. `examples/needs-review.csv` illustrates a duplicate SKU, invalid prices, an unknown external parent and invalid publication status. These are authored demonstration inputs, not a test suite or actual store exports.
+`examples/products.csv` contains a variable product and two variations. `examples/needs-review.csv` illustrates a duplicate SKU, invalid prices, an unknown external parent and invalid publication status. These are authored demonstration inputs, not actual store exports. A separate synthetic analyzer suite lives in `tests/run.php`.
 
 ## Privacy and limitations
 
@@ -67,7 +67,7 @@ A clean report is not an import guarantee. The tool does not resolve existing st
 
 ## Development and validation
 
-`php -l` checks each PHP file. `python3 tools/package.py` builds deterministic plugin/source ZIPs and SHA-256 sidecars. CI targets PHP 7.4, 8.1, 8.3 and 8.5 for syntax only. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full admin-upload and WooCommerce integration QA remains incomplete. See [validation scope](docs/VALIDATION.md).
+`php -l` checks each PHP file; `php tests/run.php` checks synthetic CSV behavior. `python3 tools/package.py` builds deterministic plugin/source ZIPs and SHA-256 sidecars. CI targets PHP 7.4, 8.1, 8.3 and 8.5 for syntax, analyzer behavior and packaging. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full admin-upload and WooCommerce integration QA remains incomplete. See [validation scope](docs/VALIDATION.md).
 
 ## References
 
@@ -76,6 +76,6 @@ A clean report is not an import guarantee. The tool does not resolve existing st
 
 ## License
 
-Copyright 2026 Nakaryu GmbH. GPL-2.0-or-later; see [LICENSE](LICENSE). This is an independent project, not an official WooCommerce product.
+Copyright 2026 Max Wellner / Nakaryu GmbH. GPL-2.0-or-later; see [LICENSE](LICENSE). This is an independent project, not an official WooCommerce product.
 
 The installable plugin ZIP excludes the standalone `bin/` CLI. Use the source repository/package for that CLI; the WP-CLI command remains included in the plugin.

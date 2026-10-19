@@ -1,5 +1,9 @@
 <?php
-if (PHP_SAPI !== 'cli') { exit; }
+/**
+ * Read-only standalone command for checking a local WooCommerce product CSV.
+ * Copyright 2026 Max Wellner / Nakaryu GmbH.
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
 require_once dirname(__DIR__) . '/includes/Analyzer.php';
 use Nakaryu\CsvPreflight\Analyzer;

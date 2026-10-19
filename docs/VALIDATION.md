@@ -16,3 +16,9 @@ Before a stable release, separately validate permissions/nonces, rendered escapi
 - These checks do not establish a full compatibility matrix, complete admin upload/permission behavior, real WooCommerce importer parity, multisite behavior or production performance. Further functional QA remains necessary.
 - Directory submission/review has not yet occurred.
 - One narrow PHPCS annotation documents validation of PHP upload metadata via exact types, UPLOAD_ERR_OK and is_uploaded_file(); the uploaded filename is not used or stored. The source-only standalone CLI now rejects web requests and is excluded from the plugin ZIP.
+
+## Functional regression checks — 2026-10-19
+
+- Added a dependency-free analyzer suite with synthetic CSV input. It checks quoted multiline fields, delimiters, partial updates, duplicate identifiers, parent references, exact decimal prices, invalid input, privacy of findings, size limits and bounded reports.
+- Local PHP 8.4.26 run: 22 assertions passed; all project PHP files passed syntax lint. CI now runs the same suite on PHP 7.4, 8.1, 8.3 and 8.5.
+- This checks the standalone analyzer, not the browser upload flow or parity with a live WooCommerce importer. The earlier Plugin Check and isolated WordPress checks above were run before this change; this change does not claim they were rerun.

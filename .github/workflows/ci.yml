@@ -18,6 +18,8 @@ jobs:
           coverage: none
       - name: PHP syntax
         run: find . -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Analyzer behavior
+        run: php tests/run.php
       - uses: actions/setup-python@v7
         with:
           python-version: '3.14'

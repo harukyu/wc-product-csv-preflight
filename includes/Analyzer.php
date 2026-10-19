@@ -1,4 +1,9 @@
 <?php
+/**
+ * Bounded, read-only checks for the documented WooCommerce CSV subset.
+ * Copyright 2026 Max Wellner / Nakaryu GmbH.
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 namespace Nakaryu\CsvPreflight;
 
 final class Analyzer {

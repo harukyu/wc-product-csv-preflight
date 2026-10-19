@@ -29,6 +29,7 @@
     "docs/DE.md",
     "docs/VALIDATION.md",
     "bin/preflight.php",
+    "tests/run.php",
     "examples/products.csv",
     "examples/needs-review.csv",
     ".gitignore",
