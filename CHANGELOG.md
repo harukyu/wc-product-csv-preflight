@@ -3,6 +3,7 @@
 ## 0.1.1 — 2026-10-07
 
 - Add synthetic functional analyzer checks to the PHP CI matrix and source package.
+- Create prerelease packages automatically from verified version tags.
 - Document source attribution and remove a duplicate standalone CLI access guard.
 - Align plugin folder, main file and text domain with Nakaryu branding for WordPress.org.
 - Set the WordPress.org contributor to `nakaryu` and document local Plugin Check preparation.

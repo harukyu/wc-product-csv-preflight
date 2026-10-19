@@ -10,6 +10,8 @@
  * Author URI: https://nakaryu.de
  * License: GPL-2.0-or-later
  * Text Domain: nakaryu-product-csv-preflight
+ *
+ * Copyright 2026 Max Wellner / Nakaryu GmbH.
  */
 namespace Nakaryu\CsvPreflight;
 if (!defined('ABSPATH')) { exit; }

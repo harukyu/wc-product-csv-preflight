@@ -1,5 +1,7 @@
 name: Developer preview downloads
 on:
+  push:
+    tags: ['v*']
   release:
     types: [published]
 permissions:
@@ -14,12 +16,18 @@ jobs:
           python-version: '3.14'
       - name: Verify release version
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || github.ref_name }}
         run: python -c 'import json, os; assert os.environ["RELEASE_TAG"] == "v" + json.load(open("project.json"))["version"]'
       - name: Build publication archives
         run: python tools/package.py
+      - name: Create a prerelease for the tag
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: gh release create "$RELEASE_TAG" --verify-tag --prerelease --generate-notes
       - name: Attach plugin and source downloads
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || github.ref_name }}
         run: gh release upload "$RELEASE_TAG" dist/*.zip dist/*.sha256 --clobber

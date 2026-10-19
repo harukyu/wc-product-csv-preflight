@@ -1,6 +1,6 @@
 # WooCommerce Product CSV Preflight
 
-[![Syntax and packaging](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml/badge.svg)](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml)
+[![Checks](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml/badge.svg)](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml)
 
 Check common product CSV mistakes **before import**. WordPress admin plugin, WP-CLI command and standalone PHP CLI by **[Nakaryu GmbH](https://nakaryu.de)**. The tool never creates, imports or changes products. **Developer preview 0.1.1: Plugin Check and isolated activation/basic CLI checks passed; broader integration remains unverified.**
 
