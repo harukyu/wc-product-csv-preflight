@@ -7,7 +7,7 @@
 namespace Nakaryu\CsvPreflight;
 
 final class Analyzer {
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.2';
     const MAX_BYTES = 5242880;
     const MAX_ROWS = 10000;
     const MAX_COLUMNS = 256;
@@ -74,7 +74,8 @@ final class Analyzer {
             if ($this->is_price($row['regular price']) && $this->is_price($row['sale price']) && $this->price_compare($row['sale price'], $row['regular price']) >= 0) { $this->issue('warning', 'sale_not_lower', $number, 'Sale price is equal to or above regular price; sale dates are not evaluated.'); }
             if ($row['stock'] !== '' && $row['stock'] !== 'parent' && !preg_match('/\A-?[0-9]{1,12}(?:\.[0-9]{1,6})?\z/', $row['stock'])) { $this->issue('error', 'invalid_stock', $number, 'Stock must be a plain number or parent.'); }
             if ($row['stock'] === 'parent' && $base !== '' && $base !== 'variation') { $this->issue('warning', 'stock_parent_type', $number, 'Stock parent is intended for variations.'); }
-            if ($row['published'] !== '' && !in_array($row['published'], array('1', '0', '-1'), true)) { $this->issue('error', 'invalid_published', $number, 'Published must be 1, 0, or -1.'); }
+            // WooCommerce accepts pending review (2) and case-insensitive boolean words here.
+            if ($row['published'] !== '' && !in_array(strtolower($row['published']), array('1', '0', '-1', '2', 'true', 'false'), true)) { $this->issue('error', 'invalid_published', $number, 'Published must be 1, 0, -1, 2, true, or false.'); }
             if ($base === 'variation' && $row['parent'] === '') { $this->issue('error', 'missing_parent', $number, 'Variation has no Parent reference.'); }
             if ($row['parent'] !== '' && $base !== '' && $base !== 'variation') { $this->issue('warning', 'unexpected_parent', $number, 'Parent supplied for a non-variation type.'); }
             $rows[] = $row;

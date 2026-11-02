@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 — 2026-11-02
+
+- Accept WooCommerce's documented `Published` values `2`, `true` and `false`, including mixed-case boolean words, without false error findings.
+- Add regression cases for valid and invalid publication statuses and refresh the validation notes.
+
 ## 0.1.1 — 2026-10-07
 
 - Add synthetic functional analyzer checks to the PHP CI matrix and source package.
