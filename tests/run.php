@@ -72,6 +72,12 @@ $invalid = report_for("SKU,Published,Stock\nPRIVATE-SKU,yes,1,000\n");
 check(has_finding($invalid, 'column_count', 2), 'incorrect record width is an error');
 check(strpos(json_encode($invalid), 'PRIVATE-SKU') === false, 'findings omit product identifiers');
 
+// The built-in importer maps 2 to pending review and boolean words to published/draft.
+$published = report_for("SKU,Published\na,1\nb,0\nc,-1\nd,2\ne,true\nf,FALSE\n");
+check($published['errors'] === 0 && $published['warnings'] === 0, 'documented publication statuses pass without false errors');
+$bad_published = report_for("SKU,Published\na,yes\nb,3\n");
+check(has_finding($bad_published, 'invalid_published', 2) && has_finding($bad_published, 'invalid_published', 3), 'undocumented publication statuses still fail');
+
 rejects("SKU,Name\nPRIVATE-SKU,\"unclosed", 'unclosed quote');
 rejects("SKU,Name\nPRIVATE-SKU,ba\"d", 'quote inside plain field');
 rejects("SKU,Name\nPRIVATE-SKU,na\0me", 'NUL byte');

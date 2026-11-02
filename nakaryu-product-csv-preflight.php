@@ -3,7 +3,7 @@
  * Plugin Name: Nakaryu Product CSV Preflight
  * Plugin URI: https://github.com/harukyu/wc-product-csv-preflight
  * Description: Check WooCommerce product CSV files before import. No products are created or changed.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Nakaryu GmbH

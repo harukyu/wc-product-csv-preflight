@@ -2,13 +2,13 @@
 
 [![Checks](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml/badge.svg)](https://github.com/harukyu/wc-product-csv-preflight/actions/workflows/ci.yml)
 
-Check common product CSV mistakes **before import**. WordPress admin plugin, WP-CLI command and standalone PHP CLI by **[Nakaryu GmbH](https://nakaryu.de)**. The tool never creates, imports or changes products. **Developer preview 0.1.1: Plugin Check and isolated activation/basic CLI checks passed; broader integration remains unverified.**
+Check common product CSV mistakes **before import**. WordPress admin plugin, WP-CLI command and standalone PHP CLI by **[Nakaryu GmbH](https://nakaryu.de)**. The tool never creates, imports or changes products. **Developer preview 0.1.2: synthetic analyzer checks and Plugin Check passed; broader WooCommerce integration remains unverified.**
 
 [Deutsche Anleitung](docs/DE.md) · [Downloads](https://github.com/harukyu/wc-product-csv-preflight/releases) · [Validation scope](docs/VALIDATION.md)
 
 ## Install and use
 
-Download `nakaryu-product-csv-preflight-0.1.1.zip` from [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases/tag/v0.1.1), or build it using `python3 tools/package.py`. On an isolated development installation, upload it through **Plugins → Add New → Upload Plugin**, activate and open **Tools → Product CSV Preflight**. Choose a CSV and delimiter, then click **Check CSV**.
+Download `nakaryu-product-csv-preflight-0.1.2.zip` from [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases/tag/v0.1.2), or build it using `python3 tools/package.py`. On an isolated development installation, upload it through **Plugins → Add New → Upload Plugin**, activate and open **Tools → Product CSV Preflight**. Choose a CSV and delimiter, then click **Check CSV**.
 
 The screen requires `manage_woocommerce`, normally granted to administrators and shop managers by WooCommerce, plus a valid nonce. WooCommerce does not need to execute for the core analyzer; without that capability the menu is unavailable. Designed for WordPress 6.0+ and PHP 7.4+; minimums are implementation targets, not verified compatibility claims. The backend sends the file to **your WordPress server**, never to Nakaryu.
 
@@ -37,9 +37,9 @@ English headers are trimmed and matched case-insensitively. Supported subset:
 | Parent | Missing variation parent, malformed id: reference, self-reference, duplicate/incorrect/in-file parent type and order |
 | Regular price / Sale price | Non-negative plain dot decimals; sale not lower warning |
 | Stock | Plain numeric quantity or parent; parent/type consistency warning |
-| Published | 1, 0 or -1 |
+| Published | 1 (published), 0 (private), -1 (draft), 2 (pending review), or case-insensitive true/false (published/draft) |
 
-At least one of SKU, ID or Name must be present as a header. This supports partial update files: absent Type/Name/price columns are not automatically errors. A blank Name warning may be intentional for updates. Type flags without an explicit base type are outside this checker profile.
+At least one of SKU, ID or Name must be present as a header. This supports partial update files: absent Type/Name/price columns are not automatically errors. A blank Name warning may be intentional for updates. Type flags without an explicit base type are outside this checker profile. WooCommerce 11.2+ can use a mapped Global Unique ID when ID and SKU are blank; this checker does not inspect that column, so its missing-identifier warning may be expected for those imports.
 
 Unknown columns generate one warning and are not validated. This includes attributes, categories, images, dates, custom meta, localized headers and extension columns. If your importer uses custom mapping, adapt a **copy** to these English headers before checking. Do not treat `regular_price` as `Regular price`.
 
@@ -67,7 +67,7 @@ A clean report is not an import guarantee. The tool does not resolve existing st
 
 ## Development and validation
 
-`php -l` checks each PHP file; `php tests/run.php` checks synthetic CSV behavior. `python3 tools/package.py` builds deterministic plugin/source ZIPs and SHA-256 sidecars. CI targets PHP 7.4, 8.1, 8.3 and 8.5 for syntax, analyzer behavior and packaging. Version 0.1.1 additionally passed official Plugin Check and isolated activation/basic WP-CLI checks. Full admin-upload and WooCommerce integration QA remains incomplete. See [validation scope](docs/VALIDATION.md).
+`php -l` checks each PHP file; `php tests/run.php` checks synthetic CSV behavior. `python3 tools/package.py` builds deterministic plugin/source ZIPs and SHA-256 sidecars. CI targets PHP 7.4, 8.1, 8.3 and 8.5 for syntax, analyzer behavior and packaging. Version 0.1.2 passed official Plugin Check in an isolated WordPress installation; earlier isolated activation, admin-upload and basic WP-CLI checks covered version 0.1.1. Full WooCommerce importer parity and compatibility testing remain incomplete. See [validation scope](docs/VALIDATION.md).
 
 ## References
 

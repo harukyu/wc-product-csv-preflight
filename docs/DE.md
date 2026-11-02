@@ -1,6 +1,6 @@
 # Product CSV Preflight – deutsche Kurzanleitung
 
-**Vorabversion 0.1.1:** Offizieller Plugin Check sowie lokale Aktivierung und einfache WP-CLI-Prüfungen abgeschlossen. Die umfassende Integration bleibt ungeprüft.
+**Vorabversion 0.1.2:** Synthetische Analysatests und offizieller Plugin Check abgeschlossen. Aktivierung, Admin-Upload und einfache WP-CLI-Prüfungen wurden zuvor mit 0.1.1 durchgeführt. Die umfassende WooCommerce-Integration bleibt ungeprüft.
 
 ## Zweck
 
@@ -8,7 +8,7 @@ Produktdateien vor dem WooCommerce-Import auf typische Fehler untersuchen: doppe
 
 ## Installation und Bedienung
 
-1. `nakaryu-product-csv-preflight-0.1.1.zip` unter [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases/tag/v0.1.1) laden oder mit `python3 tools/package.py` selbst bauen.
+1. `nakaryu-product-csv-preflight-0.1.2.zip` unter [Releases](https://github.com/harukyu/wc-product-csv-preflight/releases/tag/v0.1.2) laden oder mit `python3 tools/package.py` selbst bauen.
 2. Auf einer Entwicklungsinstallation als Plugin hochladen und aktivieren.
 3. **Werkzeuge → Product CSV Preflight** öffnen, CSV und Trennzeichen wählen und prüfen.
 
@@ -19,6 +19,10 @@ Benötigt die Berechtigung `manage_woocommerce`, die WooCommerce üblicherweise 
 UTF-8 mit englischen Spaltennamen des eingebauten WooCommerce-Importers, etwa `SKU`, `Name`, `Type`, `Parent`, `Regular price` und `Sale price`. Mindestens eine der Spalten SKU, ID oder Name muss vorkommen. Eigene Spaltenzuordnungen und deutsche Spaltennamen werden nicht automatisch erkannt. Komma, Semikolon oder Tab sind auswählbar. Preise brauchen einen Dezimalpunkt ohne Währungssymbol.
 
 Varianten verweisen mit einer Artikelnummer oder `id:123` auf ihr Elternprodukt. Ein Verweis außerhalb der Datei wird nur als Warnung gemeldet: Das Produkt könnte bereits im Shop bestehen. Der Shop wird nicht abgefragt.
+
+Die Spalte `Published` akzeptiert `1` (veröffentlicht), `0` (privat), `-1` (Entwurf), `2` (Prüfung ausstehend) sowie `true`/`false` (veröffentlicht/Entwurf, ohne Beachtung der Großschreibung).
+
+WooCommerce 11.2+ kann bei leerer ID und SKU eine zugeordnete globale Produktkennung verwenden. Dieses Werkzeug prüft die entsprechende Spalte noch nicht; die Warnung zu fehlenden Kennungen kann deshalb bei solchen Importen beabsichtigt sein.
 
 ## Ergebnis
 
