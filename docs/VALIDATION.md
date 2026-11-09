@@ -4,6 +4,12 @@ Version 0.1.0 was released after syntax and packaging checks only. Later validat
 
 The current CI workflow runs PHP syntax, synthetic analyzer behavior and allowlisted package assembly on PHP 7.4, 8.1, 8.3 and 8.5. The release workflow repeats the analyzer checks before tagging and attaching archives.
 
+## Post-release importer check — 2026-11-09
+
+In a disposable WordPress 7.1.4 / PHP 8.4.26 installation with SQLite Database Integration 3.1.3 and WooCommerce 11.2.2, the unchanged 0.1.2 plugin ZIP checked a synthetic six-product CSV containing `Published` values `1`, `0`, `-1`, `2`, `TRUE` and `false`. It returned zero findings. The built-in WooCommerce CSV importer, invoked directly under WP-CLI with the standard column mapping, parsed and imported all six products. Their stored statuses were respectively `publish`, `private`, `draft`, `pending`, `publish` and `draft`.
+
+This confirms the publication-status fix for those six inputs in that isolated environment. The browser import wizard, real store data, other CSV checks, MySQL/MariaDB and older WooCommerce versions were not covered. This check did not change the released plugin files.
+
 ## Version 0.1.2 — 2026-11-02
 
 - Fixed false errors for documented `Published` values `2`, `true` and `false`; the boolean words are accepted without regard to letter case, matching the built-in importer parser. Regression cases cover all six supported forms and reject unsupported examples.
