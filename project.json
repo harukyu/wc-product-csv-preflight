@@ -30,6 +30,8 @@
     "docs/VALIDATION.md",
     "bin/preflight.php",
     "tests/run.php",
+    "tests/README.md",
+    "tests/woocommerce-importer.php",
     "examples/products.csv",
     "examples/needs-review.csv",
     ".gitignore",
