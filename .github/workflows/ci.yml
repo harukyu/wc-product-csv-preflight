@@ -61,5 +61,6 @@ jobs:
           php "$RUNNER_TEMP/wp-cli.phar" plugin install woocommerce --version=11.2.2 \
             --activate --path="$RUNNER_TEMP/wp"
       - name: Compare Published values with the real importer
-        run: php "$RUNNER_TEMP/wp-cli.phar" eval-file \
-          "$GITHUB_WORKSPACE/tests/woocommerce-importer.php" --path="$RUNNER_TEMP/wp"
+        run: |
+          php "$RUNNER_TEMP/wp-cli.phar" eval-file \
+            "$GITHUB_WORKSPACE/tests/woocommerce-importer.php" --path="$RUNNER_TEMP/wp"
